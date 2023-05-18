@@ -10,7 +10,7 @@ import uuid
 app = Flask(__name__)
 
 
-@app.route('/0-hbnb', strict_slashes=False)
+@app.route('/1-hbnb', strict_slashes=False)
 def hbnb():
     """Display template with states, cities & amentities"""
     states = storage.all('State').values()
@@ -20,7 +20,7 @@ def hbnb():
     users = dict([user.id, "{} {}".format(user.first_name, user.last_name)]
                  for user in storage.all('User').values())
     cache_id = (str(uuid.uuid4()))
-    return render_template('0-hbnb.html',
+    return render_template('1-hbnb.html',
                            states=state_c,
                            amenities=amenities,
                            places=places,
